@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class LottoResults {
-	private List<LottoResult> lottoResults;
+	private final List<LottoResult> lottoResults;
 
 	public LottoResults() {
 		lottoResults = Arrays.stream(LottoRank.values())

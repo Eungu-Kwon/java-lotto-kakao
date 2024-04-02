@@ -18,5 +18,4 @@ public class LottoTicketsTest {
 		assertThat(lottoTickets.getLottoTickets().size()).isEqualTo(14);
 		assertThat(lottoTickets.getLottoTickets().get(0).getLottoNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
 	}
-
 }

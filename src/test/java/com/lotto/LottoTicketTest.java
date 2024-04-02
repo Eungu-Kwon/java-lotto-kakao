@@ -14,6 +14,4 @@ public class LottoTicketTest {
 		LottoTicket lotto = new LottoTicket(List.of(1, 2, 3, 4, 5, 6));
 		assertThat(lotto).isInstanceOf(LottoTicket.class);
 	}
-
-
 }

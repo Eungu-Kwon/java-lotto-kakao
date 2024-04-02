@@ -18,9 +18,7 @@ public class LottoGameOutputView {
 		reversedLottoResults
 			.stream()
 			.filter(result -> !result.isFailed())
-			.forEach(result -> {
-				System.out.println(result.toString());
-			});
+			.forEach(System.out::println);
 	}
 
 	public void printLottoCount(int lottoCount) {
