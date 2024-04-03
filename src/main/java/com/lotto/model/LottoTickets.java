@@ -22,4 +22,13 @@ public class LottoTickets {
 	public int size() {
 		return lottoTickets.size();
 	}
+
+	public LottoResults playLotto(TargetLotto targetLotto) {
+		LottoResults lottoResults = new LottoResults();
+		getLottoTickets().forEach(lottoTicket -> {
+			LottoRank lottoRank = targetLotto.match(lottoTicket);
+			lottoResults.addLottoCount(lottoRank);
+		});
+		return lottoResults;
+	}
 }
