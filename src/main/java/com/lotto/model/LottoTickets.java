@@ -6,9 +6,14 @@ import java.util.List;
 import com.lotto.util.LottoGenerateStrategy;
 
 public class LottoTickets {
-	private final List<LottoTicket> lottoTickets = new ArrayList<>();
+	private final List<LottoTicket> lottoTickets;
 
-	public LottoTickets(int amount, LottoGenerateStrategy lottoGenerateStrategy) {
+	public LottoTickets() {
+		this.lottoTickets = new ArrayList<>();
+	}
+
+	public LottoTickets(int amount, List<LottoTicket> manualTickets, LottoGenerateStrategy lottoGenerateStrategy) {
+		lottoTickets = manualTickets;
 		for (int i = 0; i < amount; i++) {
 			List<Integer> numbers = lottoGenerateStrategy.generate();
 			lottoTickets.add(new LottoTicket(numbers));
@@ -21,6 +26,10 @@ public class LottoTickets {
 
 	public int size() {
 		return lottoTickets.size();
+	}
+
+	public void add(LottoTicket lottoTicket) {
+		lottoTickets.add(lottoTicket);
 	}
 
 	public LottoResults playLotto(TargetLotto targetLotto) {

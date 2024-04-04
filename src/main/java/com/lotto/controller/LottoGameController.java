@@ -2,6 +2,7 @@ package com.lotto.controller;
 
 import com.lotto.model.LottoGame;
 import com.lotto.model.LottoResults;
+import com.lotto.model.LottoTickets;
 import com.lotto.model.TargetLotto;
 import com.lotto.util.LottoNumberGenerator;
 import com.lotto.view.LottoGameInputView;
@@ -18,8 +19,11 @@ public class LottoGameController {
 
 	public void run() {
 		int money = lottoGameInputView.inputMoney();
-		LottoGame lottoGame = new LottoGame(money, new LottoNumberGenerator());
-		lottoGameOutputView.printLottoCount(lottoGame.getLottoTickets().size());
+		int manualCount = lottoGameInputView.inputManualCount(money);
+		LottoTickets lottoTickets = lottoGameInputView.inputManualLottoTickets(manualCount);
+
+		LottoGame lottoGame = new LottoGame(money, lottoTickets, new LottoNumberGenerator());
+		lottoGameOutputView.printLottoCount(manualCount, lottoGame.getLottoTickets().size() - manualCount);
 		lottoGameOutputView.printLottoList(lottoGame);
 
 		TargetLotto targetLotto = lottoGameInputView.inputTargetNumbers();

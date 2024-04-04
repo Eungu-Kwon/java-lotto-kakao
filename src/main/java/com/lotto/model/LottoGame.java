@@ -3,12 +3,12 @@ package com.lotto.model;
 import com.lotto.util.LottoGenerateStrategy;
 
 public class LottoGame {
-	private static final int LOTTO_PRICE = 1000;
+	public static final int LOTTO_PRICE = 1000;
 	private final LottoTickets lottoTickets;
 	private LottoResults lottoResults = null;
 
-	public LottoGame(int money, LottoGenerateStrategy lottoGenerateStrategy) {
-		this.lottoTickets = new LottoTickets(money / LOTTO_PRICE, lottoGenerateStrategy);
+	public LottoGame(int money, LottoTickets manualTicket, LottoGenerateStrategy lottoGenerateStrategy) {
+		this.lottoTickets = new LottoTickets((money / LOTTO_PRICE) - manualTicket.size(), manualTicket.getLottoTickets(), lottoGenerateStrategy);
 	}
 
 	public LottoTickets getLottoTickets() {
