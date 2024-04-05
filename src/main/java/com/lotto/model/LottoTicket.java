@@ -4,11 +4,11 @@ import java.util.List;
 
 public class LottoTicket {
 	public static final int LOTTO_SIZE = 6;
-	private final List<Integer> lottoNumbers;
+	private final List<LottoNumber> lottoNumbers;
 
 	public LottoTicket(List<Integer> lottoNumbers) {
 		isLottoTicketValid(lottoNumbers);
-		this.lottoNumbers = lottoNumbers;
+		this.lottoNumbers = LottoNumber.of(lottoNumbers);
 	}
 
 	private void isLottoTicketValid(List<Integer> lottoNumbers) {
@@ -21,7 +21,7 @@ public class LottoTicket {
 		}
 	}
 
-	public List<Integer> getLottoNumbers() {
+	public List<LottoNumber> getLottoNumbers() {
 		return lottoNumbers;
 	}
 

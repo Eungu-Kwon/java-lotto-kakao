@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import com.lotto.model.LottoNumber;
 import com.lotto.model.LottoTicket;
 import com.lotto.model.LottoTickets;
 
@@ -15,7 +16,7 @@ public class LottoTicketsTest {
 		LottoTickets lottoTickets = new LottoTickets(14, new LottoTickets().getLottoTickets(), () -> List.of(1, 2, 3, 4, 5, 6));
 
 		assertThat(lottoTickets.getLottoTickets().size()).isEqualTo(14);
-		assertThat(lottoTickets.getLottoTickets().get(0).getLottoNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
+		assertThat(lottoTickets.getLottoTickets().get(0).getLottoNumbers().stream().map(LottoNumber::getNumber).toArray()).containsExactly(1, 2, 3, 4, 5, 6);
 	}
 
 	@Test
@@ -26,7 +27,7 @@ public class LottoTicketsTest {
 		LottoTickets lottoTickets = new LottoTickets(12, manualLottoTickets.getLottoTickets(), () -> List.of(11, 12, 13, 14, 15, 16));
 
 		assertThat(lottoTickets.getLottoTickets().size()).isEqualTo(14);
-		assertThat(lottoTickets.getLottoTickets().get(0).getLottoNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
-		assertThat(lottoTickets.getLottoTickets().get(1).getLottoNumbers()).containsExactly(7, 8, 9, 10, 11, 12);
+		assertThat(lottoTickets.getLottoTickets().get(0).getLottoNumbers().stream().map(LottoNumber::getNumber).toArray()).containsExactly(1, 2, 3, 4, 5, 6);
+		assertThat(lottoTickets.getLottoTickets().get(1).getLottoNumbers().stream().map(LottoNumber::getNumber).toArray()).containsExactly(7, 8, 9, 10, 11, 12);
 	}
 }

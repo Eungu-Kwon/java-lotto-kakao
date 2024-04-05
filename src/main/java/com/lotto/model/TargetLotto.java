@@ -3,13 +3,13 @@ package com.lotto.model;
 import java.util.List;
 
 public class TargetLotto {
-	private final List<Integer> numbers;
-	private final int bonusNumber;
+	private final List<LottoNumber> numbers;
+	private final LottoNumber bonusNumber;
 
 	public TargetLotto(List<Integer> numbers, int bonusNumber) {
 		isTargetLottoValid(numbers, bonusNumber);
-		this.numbers = numbers;
-		this.bonusNumber = bonusNumber;
+		this.numbers = LottoNumber.of(numbers);
+		this.bonusNumber = new LottoNumber(bonusNumber);
 	}
 
 	private void isTargetLottoValid(List<Integer> numbers, int bonusNumber) {
@@ -21,11 +21,11 @@ public class TargetLotto {
 		}
 	}
 
-	public List<Integer> getNumbers() {
+	public List<LottoNumber> getNumbers() {
 		return numbers;
 	}
 
-	public int getBonusNumber() {
+	public LottoNumber getBonusNumber() {
 		return bonusNumber;
 	}
 
