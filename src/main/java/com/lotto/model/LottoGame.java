@@ -8,7 +8,8 @@ public class LottoGame {
 	private LottoResults lottoResults = null;
 
 	public LottoGame(int money, LottoTickets manualTicket, LottoGenerateStrategy lottoGenerateStrategy) {
-		this.lottoTickets = new LottoTickets((money / LOTTO_PRICE) - manualTicket.size(), manualTicket.getLottoTickets(), lottoGenerateStrategy);
+		this.lottoTickets = new LottoTickets((money / LOTTO_PRICE) - manualTicket.size(),
+			manualTicket.getLottoTickets(), lottoGenerateStrategy);
 	}
 
 	public LottoTickets getLottoTickets() {

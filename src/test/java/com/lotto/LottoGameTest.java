@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.lotto.model.LottoGame;
-import com.lotto.model.LottoNumber;
 import com.lotto.model.LottoRank;
 import com.lotto.model.LottoTickets;
 import com.lotto.model.TargetLotto;

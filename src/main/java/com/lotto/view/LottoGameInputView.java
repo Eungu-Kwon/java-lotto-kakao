@@ -6,7 +6,6 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import com.lotto.model.LottoGame;
-import com.lotto.model.LottoNumber;
 import com.lotto.model.LottoTicket;
 import com.lotto.model.LottoTickets;
 import com.lotto.model.TargetLotto;
