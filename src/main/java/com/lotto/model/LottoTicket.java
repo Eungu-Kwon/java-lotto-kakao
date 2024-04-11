@@ -4,7 +4,7 @@ import java.util.List;
 
 public class LottoTicket {
 	public static final int LOTTO_SIZE = 6;
-	private final List<LottoNumber> lottoNumbers;
+	private final LottoNumbers lottoNumbers;
 
 	public LottoTicket(List<Integer> lottoNumbers) {
 		isLottoTicketValid(lottoNumbers);
@@ -21,7 +21,7 @@ public class LottoTicket {
 		}
 	}
 
-	public List<LottoNumber> getLottoNumbers() {
+	public LottoNumbers getLottoNumbers() {
 		return lottoNumbers;
 	}
 

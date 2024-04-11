@@ -7,9 +7,12 @@ public class LottoGame {
 	private final LottoTickets lottoTickets;
 	private LottoResults lottoResults = null;
 
-	public LottoGame(int money, LottoTickets manualTicket, LottoGenerateStrategy lottoGenerateStrategy) {
-		this.lottoTickets = new LottoTickets((money / LOTTO_PRICE) - manualTicket.size(),
-			manualTicket.getLottoTickets(), lottoGenerateStrategy);
+	public LottoGame(int money, LottoGenerateStrategy lottoGenerateStrategy) {
+		this.lottoTickets = new LottoTickets((money / LOTTO_PRICE), lottoGenerateStrategy);
+	}
+
+	public void addManualLottoTicket(LottoTickets lottoTickets) {
+		this.lottoTickets.addManualLotto(lottoTickets);
 	}
 
 	public LottoTickets getLottoTickets() {

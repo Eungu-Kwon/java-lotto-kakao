@@ -13,10 +13,10 @@ public class LottoNumber {
 		this.number = number;
 	}
 
-	public static List<LottoNumber> of(List<Integer> numbers) {
-		return numbers.stream()
+	public static LottoNumbers of(List<Integer> numbers) {
+		return new LottoNumbers(numbers.stream()
 			.map(LottoNumber::new)
-			.collect(Collectors.toList());
+			.collect(Collectors.toList()));
 	}
 
 	public int getNumber() {

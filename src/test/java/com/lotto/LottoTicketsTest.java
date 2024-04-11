@@ -13,15 +13,14 @@ import com.lotto.model.LottoTickets;
 public class LottoTicketsTest {
 	@Test
 	void 구입_금액에_해당하는_로또를_구매할_수_있다() {
-		LottoTickets lottoTickets = new LottoTickets(14, new LottoTickets().getLottoTickets(),
+		LottoTickets lottoTickets = new LottoTickets(14,
 			() -> List.of(1, 2, 3, 4, 5, 6));
 
 		assertThat(lottoTickets.getLottoTickets().size()).isEqualTo(14);
 		assertThat(lottoTickets.getLottoTickets()
 			.get(0)
 			.getLottoNumbers()
-			.stream()
-			.map(LottoNumber::getNumber)
+			.getLottoNumbersByInt()
 			.toArray()).containsExactly(1, 2, 3, 4, 5, 6);
 	}
 
@@ -30,21 +29,21 @@ public class LottoTicketsTest {
 		LottoTickets manualLottoTickets = new LottoTickets();
 		manualLottoTickets.add(new LottoTicket(List.of(1, 2, 3, 4, 5, 6)));
 		manualLottoTickets.add(new LottoTicket(List.of(7, 8, 9, 10, 11, 12)));
-		LottoTickets lottoTickets = new LottoTickets(12, manualLottoTickets.getLottoTickets(),
+		LottoTickets lottoTickets = new LottoTickets(12,
 			() -> List.of(11, 12, 13, 14, 15, 16));
+
+		lottoTickets.addManualLotto(manualLottoTickets);
 
 		assertThat(lottoTickets.getLottoTickets().size()).isEqualTo(14);
 		assertThat(lottoTickets.getLottoTickets()
 			.get(0)
 			.getLottoNumbers()
-			.stream()
-			.map(LottoNumber::getNumber)
+			.getLottoNumbersByInt()
 			.toArray()).containsExactly(1, 2, 3, 4, 5, 6);
 		assertThat(lottoTickets.getLottoTickets()
 			.get(1)
 			.getLottoNumbers()
-			.stream()
-			.map(LottoNumber::getNumber)
-			.toArray()).containsExactly(7, 8, 9, 10, 11, 12);
+			.getLottoNumbersByInt()
+			.toArray()).containsExactly(1, 2, 3, 4, 5, 6);
 	}
 }

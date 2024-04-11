@@ -28,13 +28,13 @@ public class LottoGameTest {
 
 	@Test
 	void 구입_금액에_해당하는_로또를_구매할_수_있다() {
-		LottoGame lottoGame = new LottoGame(14000, new LottoTickets(), lottoGenerateStrategy);
+		LottoGame lottoGame = new LottoGame(14000, lottoGenerateStrategy);
 		assertThat(lottoGame.getLottoTickets().size()).isEqualTo(14);
 	}
 
 	@Test
 	void 로또_게임의_수익률을_계산할_수_있다() {
-		LottoGame lottoGame = new LottoGame(1000, new LottoTickets(), lottoGenerateStrategy);
+		LottoGame lottoGame = new LottoGame(1000, lottoGenerateStrategy);
 
 		lottoGame.play(new TargetLotto(List.of(1, 2, 3, 4, 5, 6), 7));
 		assertThat(lottoGame.calculateProfit()).isEqualTo((int)(LottoRank.FIRST.getPrize() / 1000));

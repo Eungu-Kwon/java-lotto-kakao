@@ -22,7 +22,9 @@ public class LottoGameController {
 		int manualCount = lottoGameInputView.inputManualCount(money);
 		LottoTickets lottoTickets = lottoGameInputView.inputManualLottoTickets(manualCount);
 
-		LottoGame lottoGame = new LottoGame(money, lottoTickets, new LottoNumberGenerator());
+		int autoMoney = money - (manualCount * LottoGame.LOTTO_PRICE);
+		LottoGame lottoGame = new LottoGame(autoMoney, new LottoNumberGenerator());
+		lottoGame.addManualLottoTicket(lottoTickets);
 		lottoGameOutputView.printLottoCount(manualCount, lottoGame.getLottoTickets().size() - manualCount);
 		lottoGameOutputView.printLottoList(lottoGame);
 

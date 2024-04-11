@@ -3,7 +3,7 @@ package com.lotto.model;
 import java.util.List;
 
 public class TargetLotto {
-	private final List<LottoNumber> numbers;
+	private final LottoNumbers numbers;
 	private final LottoNumber bonusNumber;
 
 	public TargetLotto(List<Integer> numbers, int bonusNumber) {
@@ -21,7 +21,7 @@ public class TargetLotto {
 		}
 	}
 
-	public List<LottoNumber> getNumbers() {
+	public LottoNumbers getNumbers() {
 		return numbers;
 	}
 
@@ -30,7 +30,9 @@ public class TargetLotto {
 	}
 
 	public LottoRank match(LottoTicket lottoTicket) {
-		int matchCount = (int)numbers.stream().filter(lottoTicket.getLottoNumbers()::contains).count();
+		int matchCount = (int)numbers.getLottoNumbersByInt().stream()
+			.filter(lottoTicket.getLottoNumbers().getLottoNumbersByInt()::contains)
+			.count();
 		boolean isBonusMatch = lottoTicket.getLottoNumbers().contains(bonusNumber);
 		return LottoRank.of(matchCount, isBonusMatch);
 	}
