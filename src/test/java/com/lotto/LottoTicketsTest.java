@@ -44,6 +44,6 @@ public class LottoTicketsTest {
 			.get(1)
 			.getLottoNumbers()
 			.getLottoNumbersByInt()
-			.toArray()).containsExactly(1, 2, 3, 4, 5, 6);
+			.toArray()).containsExactly(7, 8, 9, 10, 11, 12);
 	}
 }

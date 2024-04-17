@@ -1,6 +1,7 @@
 package com.lotto.model;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class LottoNumber {
@@ -14,9 +15,9 @@ public class LottoNumber {
 	}
 
 	public static LottoNumbers of(List<Integer> numbers) {
-		return new LottoNumbers(numbers.stream()
+		return numbers.stream()
 			.map(LottoNumber::new)
-			.collect(Collectors.toList()));
+			.collect(Collectors.collectingAndThen(Collectors.toList(), LottoNumbers::new));
 	}
 
 	public int getNumber() {
